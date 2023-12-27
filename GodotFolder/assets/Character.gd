@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_OXYGEN = 360 # 6min
 var current_oxgygen = 359
@@ -29,15 +29,33 @@ func _physics_process(delta):
 	if is_on_floor():
 		jump_counter = 0 
 	
+	# shift
+	if Input.is_action_pressed("ui_down"):
+		SPEED = 150
+	else:
+		SPEED = 500
+	
+	
 	#Left & right  
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+	elif Input.is_action_just_pressed(""):
+		velocity.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, 10)
 	
 	
 	# animation stuff
+	if Input.is_action_pressed("ui_down"):
+		$AnimatedSprite2D.play("Crouching")
+	elif is_on_floor() and velocity.x == 0:
+		$AnimatedSprite2D.play("Standing")
+	elif is_on_floor() and velocity.x != 0:
+		$AnimatedSprite2D.play("Walking")
+	elif velocity.y != 0:
+		$AnimatedSprite2D.play("jumping")
+	
 	
 	move_and_slide()
 
