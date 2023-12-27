@@ -2,7 +2,7 @@ extends Node
 
 var checkpoint = 0
 var list_of_nodes = {
-	"1" : [282394,10],
+	"1" : [1540,120],
 	"2" : [100, 50]
 }
 

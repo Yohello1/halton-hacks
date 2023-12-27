@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtpkxvq5ah1ri"]
 
 [ext_resource type="Script" path="res://assets/Character.gd" id="1_ucbkj"]
-[ext_resource type="Texture2D" uid="uid://su8jsivcnbk0" path="res://assets/Astro/Crouch.PNG" id="2_hw70v"]
+[ext_resource type="Texture2D" uid="uid://dfeb4eqk1imfg" path="res://assets/Astro/Crouch.PNG" id="2_hw70v"]
 [ext_resource type="Texture2D" uid="uid://coopmdnfxetfu" path="res://assets/Astro/Stand.PNG" id="3_jspah"]
 [ext_resource type="Texture2D" uid="uid://dljkll6vbtapl" path="res://assets/Astro/Walk1.PNG" id="4_mnuxw"]
 [ext_resource type="Texture2D" uid="uid://ev2ct2ika32s" path="res://assets/Astro/Walk2.PNG" id="5_kug5b"]
@@ -17,9 +17,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_hw70v")
-}, {
 "duration": 1.0,
 "texture": ExtResource("3_jspah")
 }],
@@ -51,8 +48,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyvad"]
-radius = 64.0
-height = 256.0
+radius = 16.0
+height = 48.0
 
 [node name="character" type="Node"]
 
@@ -61,12 +58,13 @@ floor_max_angle = 0.844739
 script = ExtResource("1_ucbkj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(64, 64)
+position = Vector2(0, -8)
+scale = Vector2(0.152778, 0.203056)
 sprite_frames = SubResource("SpriteFrames_iy5xe")
-animation = &"Walking"
+animation = &"Jumping"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(64, 64)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_uyvad")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

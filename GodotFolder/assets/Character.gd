@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -300.0
 const MAX_OXYGEN = 360 # 6min
 var current_oxgygen = 359
 var jump_counter = 0
