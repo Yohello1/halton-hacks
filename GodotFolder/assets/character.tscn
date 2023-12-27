@@ -48,8 +48,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyvad"]
-radius = 16.0
-height = 48.0
+radius = 8.0
+height = 28.0
 
 [node name="character" type="Node"]
 
@@ -58,8 +58,8 @@ floor_max_angle = 0.844739
 script = ExtResource("1_ucbkj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(0, -8)
-scale = Vector2(0.152778, 0.203056)
+position = Vector2(-4.76837e-07, -7.31002)
+scale = Vector2(0.104167, 0.10632)
 sprite_frames = SubResource("SpriteFrames_iy5xe")
 animation = &"Jumping"
 
