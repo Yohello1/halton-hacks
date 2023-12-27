@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtpkxvq5ah1ri"]
+[gd_scene load_steps=8 format=3 uid="uid://dtpkxvq5ah1ri"]
 
-[ext_resource type="Texture2D" uid="uid://10f7ympio8sc" path="res://icon.svg" id="1_nd0f1"]
 [ext_resource type="Script" path="res://assets/Character.gd" id="1_ucbkj"]
+[ext_resource type="Texture2D" uid="uid://su8jsivcnbk0" path="res://assets/Astro/Crouch.PNG" id="2_hw70v"]
+[ext_resource type="Texture2D" uid="uid://coopmdnfxetfu" path="res://assets/Astro/Stand.PNG" id="3_jspah"]
+[ext_resource type="Texture2D" uid="uid://dljkll6vbtapl" path="res://assets/Astro/Walk1.PNG" id="4_mnuxw"]
+[ext_resource type="Texture2D" uid="uid://ev2ct2ika32s" path="res://assets/Astro/Walk2.PNG" id="5_kug5b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iy5xe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nd0f1")
+"texture": ExtResource("2_hw70v")
 }],
 "loop": true,
 "name": &"Crouching",
@@ -15,7 +18,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nd0f1")
+"texture": ExtResource("2_hw70v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jspah")
 }],
 "loop": true,
 "name": &"Jumping",
@@ -23,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nd0f1")
+"texture": ExtResource("3_jspah")
 }],
 "loop": true,
 "name": &"Standing",
@@ -31,7 +37,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nd0f1")
+"texture": ExtResource("4_mnuxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jspah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kug5b")
 }],
 "loop": true,
 "name": &"Walking",
@@ -51,7 +63,7 @@ script = ExtResource("1_ucbkj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(64, 64)
 sprite_frames = SubResource("SpriteFrames_iy5xe")
-animation = &"Crouching"
+animation = &"Walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(64, 64)

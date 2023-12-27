@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cehh632vvfoh1"]
+
+[ext_resource type="Texture2D" uid="uid://s2td1mo4ts0" path="res://assets/TitleScreen.png" id="1_fkfv1"]
+[ext_resource type="Script" path="res://assets/Start.gd" id="1_st7wv"]
+
+[node name="Start" type="Node"]
+script = ExtResource("1_st7wv")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_fkfv1")
+
+[node name="Button" type="Button" parent="."]
+visibility_layer = 0
+offset_left = 216.0
+offset_top = 536.0
+offset_right = 448.0
+offset_bottom = 640.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
