@@ -5,12 +5,18 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iy5xe"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nd0f1")
+}],
 "loop": true,
 "name": &"Crouching",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nd0f1")
+}],
 "loop": true,
 "name": &"Jumping",
 "speed": 5.0
@@ -23,7 +29,10 @@ animations = [{
 "name": &"Standing",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nd0f1")
+}],
 "loop": true,
 "name": &"Walking",
 "speed": 5.0
@@ -42,7 +51,7 @@ script = ExtResource("1_ucbkj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(64, 64)
 sprite_frames = SubResource("SpriteFrames_iy5xe")
-animation = &"Jumping"
+animation = &"Crouching"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(64, 64)
