@@ -1,18 +1,16 @@
-extends Node
+extends Area2D
 
-var checkpoint = 0
-var list_of_nodes = {
-	"1" : [282394,10],
-	"2" : [100, 50]
-}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Checkpoint:", checkpoint )
-	
-
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_body_entered(body):
+	if Global.checkpoint < self.name.to_int():
+		Global.checkpoint = self.name.to_int()

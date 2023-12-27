@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const MAX_OXYGEN = 360 # 6min
 var current_oxgygen = 359
 var jump_counter = 0
@@ -23,7 +23,7 @@ func _physics_process(delta):
 	# Jumping 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	if Input.is_action_just_pressed("ui_accept") and (jump_counter < 2):
+	if Input.is_action_just_pressed("ui_accept") and (jump_counter < 3):
 		velocity.y = JUMP_VELOCITY
 		jump_counter += 1
 	if is_on_floor():
@@ -52,9 +52,17 @@ func _physics_process(delta):
 	elif is_on_floor() and velocity.x != 0:
 		$AnimatedSprite2D.play("Walking")
 	elif velocity.y != 0:
-		$AnimatedSprite2D.play("jumping")
+		$AnimatedSprite2D.play("Jumping")
 	
+	
+	if self.position.y  > 500:
+		die()
 	
 	move_and_slide()
+	
+
+func die():
+	self.position.x = Global.list_of_nodes[str(Global.checkpoint)][0]
+	self.position.y = Global.list_of_nodes[str(Global.checkpoint)][1]
 
 
