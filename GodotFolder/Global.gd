@@ -3,8 +3,8 @@ extends Node
 var checkpoint = 0
 var list_of_nodes = {
 	"0" : [0,0],
-	"1" : [1540,120],
-	"2" : [100, 50]
+	"1" : [1192,-224],
+	"2" : [2662, -393]
 }
 
 var jump_limit = 3
