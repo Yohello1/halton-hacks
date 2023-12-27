@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtpkxvq5ah1ri"]
+
+[ext_resource type="Texture2D" uid="uid://10f7ympio8sc" path="res://icon.svg" id="1_nd0f1"]
+[ext_resource type="Script" path="res://assets/Character.gd" id="1_ucbkj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iy5xe"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Crouching",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nd0f1")
+}],
+"loop": true,
+"name": &"Standing",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyvad"]
+radius = 64.0
+height = 128.0
+
+[node name="character" type="Node"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+floor_max_angle = 0.844739
+script = ExtResource("1_ucbkj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(64, 64)
+sprite_frames = SubResource("SpriteFrames_iy5xe")
+animation = &"Jumping"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(64, 64)
+shape = SubResource("CapsuleShape2D_uyvad")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
